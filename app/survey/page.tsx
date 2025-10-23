@@ -61,8 +61,8 @@ export default function SurveyPage() {
     if (currentIndex < surveyQuestions.length - 1) {
       setCurrentIndex(prev => prev + 1);
     } else {
-      // Last question - submit
-      setIsComplete(true);
+      // Last question - navigate to anxiety assessment
+      window.location.href = '/survey/anxiety';
     }
   };
 

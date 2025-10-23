@@ -4,6 +4,8 @@ import { Question } from '../types/survey';
 import StatementCards from './StatementCards';
 import ScenarioCards from './ScenarioCards';
 import RPGEncounter from './RPGEncounter';
+import BodySensationCards from './BodySensationCards';
+import ConfidenceGauge from './ConfidenceGauge';
 import LikertScale from './LikertScale';
 import MultipleChoice from './MultipleChoice';
 import TextInput from './TextInput';
@@ -41,6 +43,24 @@ export default function QuestionCard({ question, answer, onAnswer }: QuestionCar
             selectedValue={answer as number || null}
             onSelect={onAnswer}
             scenario={question.scenario || { title: 'Think fast!', description: 'What do you do?' }}
+          />
+        );
+      
+      case 'body-sensation':
+        return (
+          <BodySensationCards
+            selectedValue={answer as number || null}
+            onSelect={onAnswer}
+          />
+        );
+      
+      case 'confidence-gauge':
+        return (
+          <ConfidenceGauge
+            selectedValue={answer as number || null}
+            onSelect={onAnswer}
+            min={question.min}
+            max={question.max}
           />
         );
       
